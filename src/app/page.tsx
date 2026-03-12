@@ -10,16 +10,37 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black">
+    <>
       <Navigation />
-      <Hero />
-      <About />
-      <Product />
-      <Process />
-      <Technology />
-      <Patents />
-      <Contact />
+      <main id="main-content" className="min-h-screen">
+        <Hero />
+        <About />
+        <Product />
+        <Process />
+        <Technology />
+        <Patents />
+        <Contact />
+      </main>
       <Footer />
-    </main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "MixCast Studios",
+            description:
+              "Next generation virtual production platform enabling filmmakers to capture real actors inside 3D digital environments in real-time.",
+            foundingDate: "2019",
+            knowsAbout: [
+              "Virtual Production",
+              "Real-Time Compositing",
+              "Volumetric Capture",
+              "Green Screen Technology",
+            ],
+          }),
+        }}
+      />
+    </>
   );
 }

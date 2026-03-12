@@ -1,47 +1,81 @@
+"use client";
+
+import ScrollReveal from "./ScrollReveal";
+
 const patents = [
-  "Cinematography Via Immersive Computing Environment",
-  "Self-Coordinating Camera Drone System",
-  "Multi-Modal Data Fusion for Scene Segmentation",
-  "Method And System For Chroma Keying",
+  {
+    title: "Cinematography Via Immersive Computing Environment",
+    id: "01",
+  },
+  {
+    title: "Self-Coordinating Camera Drone System",
+    id: "02",
+  },
+  {
+    title: "Multi-Modal Data Fusion for Scene Segmentation",
+    id: "03",
+  },
+  {
+    title: "Method And System For Chroma Keying",
+    id: "04",
+  },
 ];
 
 export default function Patents() {
   return (
-    <section id="patents" className="py-24 px-6 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue/3 to-transparent" />
+    <section
+      id="patents"
+      className="relative py-32 px-6 lg:px-8 overflow-hidden"
+      aria-labelledby="patents-heading"
+    >
+      {/* Background treatment: subtle diagonal */}
+      <div
+        className="absolute inset-0 bg-gradient-to-br from-bg-secondary via-bg-primary to-bg-secondary"
+        aria-hidden="true"
+      />
 
-      <div className="max-w-7xl mx-auto relative">
-        <div className="mb-4">
-          <h2 className="text-5xl md:text-6xl font-light text-white tracking-tight">
-            OUR PATENTS
-          </h2>
-          <div className="h-0.5 w-32 bg-gradient-to-r from-cyan to-transparent mt-4" />
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-16 mt-16 items-center">
-          {/* Patent count */}
-          <div className="flex justify-center">
-            <div className="relative w-48 h-48 rounded-full border-4 border-cyan/30 flex items-center justify-center">
-              <div className="absolute inset-2 rounded-full border border-white/10" />
-              <div className="text-center">
-                <p className="text-6xl font-bold text-white">4</p>
-                <p className="text-sm font-bold text-cyan uppercase tracking-widest">
-                  Patents
-                </p>
-                <p className="text-xs font-bold text-cyan/60 uppercase tracking-widest">
-                  Awarded
-                </p>
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Horizontal layout: big number left, content right */}
+        <div className="grid lg:grid-cols-[280px_1fr] gap-16 lg:gap-24 items-start">
+          {/* Left: Patent count as bold statement */}
+          <ScrollReveal direction="left">
+            <div className="lg:sticky lg:top-32">
+              <p className="text-accent text-xs font-semibold tracking-[0.4em] uppercase mb-3">
+                Intellectual Property
+              </p>
+              <h2
+                id="patents-heading"
+                className="font-heading text-4xl sm:text-5xl font-bold text-text-primary tracking-tight mb-6"
+              >
+                Our Patents
+              </h2>
+              <div className="flex items-baseline gap-3">
+                <span className="text-8xl lg:text-9xl font-heading font-bold gradient-text leading-none">
+                  4
+                </span>
+                <div>
+                  <p className="text-sm font-semibold text-text-primary uppercase tracking-wider">
+                    Patents
+                  </p>
+                  <p className="text-sm text-accent">Awarded</p>
+                </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
-          {/* Patent list */}
-          <div className="space-y-6">
+          {/* Right: Patent list as bordered cards */}
+          <div className="space-y-4">
             {patents.map((patent, i) => (
-              <div key={patent} className="flex items-start gap-4">
-                <div className="w-2 h-2 rounded-full bg-cyan mt-2 shrink-0" />
-                <p className="text-lg text-gray-300 font-light">{patent}</p>
-              </div>
+              <ScrollReveal key={patent.id} delay={i * 0.1}>
+                <div className="flex items-start gap-6 p-6 rounded-lg border border-border-subtle hover:border-border-accent bg-bg-secondary/50 transition-all duration-300 group">
+                  <span className="text-3xl font-heading font-bold text-accent/20 group-hover:text-accent/40 transition-colors shrink-0 select-none">
+                    {patent.id}
+                  </span>
+                  <p className="text-lg text-text-secondary group-hover:text-text-primary transition-colors leading-relaxed pt-1">
+                    {patent.title}
+                  </p>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>

@@ -1,99 +1,83 @@
+"use client";
+
+import ScrollReveal from "./ScrollReveal";
+
+const steps = [
+  {
+    num: "01",
+    title: "Green Screen Capture",
+    description:
+      "Actors perform on a standard green screen stage with professional film equipment. No specialized LED walls needed.",
+  },
+  {
+    num: "02",
+    title: "Volumetric Sync",
+    description:
+      "MixCast tracks camera position, lens data, and actor movement, synchronizing everything with the 3D digital environment.",
+  },
+  {
+    num: "03",
+    title: "Real-Time Output",
+    description:
+      "The director sees the final composited image live. Adjustments to lighting, camera angle, and environment happen instantly on set.",
+  },
+];
+
 export default function Process() {
   return (
-    <section id="process" className="py-24 px-6 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue/3 to-transparent" />
+    <section
+      id="process"
+      className="relative py-32 px-6 lg:px-8 overflow-hidden"
+      aria-labelledby="process-heading"
+    >
+      {/* Grid mesh background for this section */}
+      <div className="absolute inset-0 grid-mesh" aria-hidden="true" />
+      {/* Accent glow: bottom-right */}
+      <div
+        className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full blur-[200px] bg-brand-blue/8"
+        aria-hidden="true"
+      />
 
-      <div className="max-w-7xl mx-auto relative">
-        <div className="mb-4">
-          <h2 className="text-5xl md:text-6xl font-light text-white tracking-tight">
-            OUR PROCESS
-          </h2>
-          <div className="h-0.5 w-32 bg-gradient-to-r from-cyan to-transparent mt-4" />
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-16 mt-16 items-center">
-          <div>
-            <p className="text-xl text-gray-300 font-light leading-relaxed mb-12">
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Center-aligned heading — different from left-aligned About & Product */}
+        <ScrollReveal>
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <p className="text-accent text-xs font-semibold tracking-[0.4em] uppercase mb-3">
+              How It Works
+            </p>
+            <h2
+              id="process-heading"
+              className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary tracking-tight mb-6"
+            >
+              From green screen to
+              <br />
+              <span className="gradient-text">final frame</span>
+            </h2>
+            <p className="text-lg text-text-secondary leading-relaxed">
               We volumetrically sync real-world elements and 3D digital
               environments, enabling cameras and filmmakers to see and film
-              both at the same time.
+              both simultaneously.
             </p>
-
-            {/* Process steps */}
-            <div className="space-y-8">
-              {[
-                {
-                  step: "01",
-                  title: "Green Screen Capture",
-                  desc: "Actors perform on a green screen stage with standard film equipment.",
-                },
-                {
-                  step: "02",
-                  title: "Volumetric Sync",
-                  desc: "MixCast synchronizes camera position and movement with the 3D digital environment.",
-                },
-                {
-                  step: "03",
-                  title: "Real-Time Composite",
-                  desc: "The final composited image is visible to the director and crew in real-time.",
-                },
-              ].map((item) => (
-                <div key={item.step} className="flex gap-6 items-start">
-                  <span className="text-4xl font-bold text-cyan/20">
-                    {item.step}
-                  </span>
-                  <div>
-                    <h3 className="text-lg font-semibold text-white mb-1">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-400 text-sm">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
+        </ScrollReveal>
 
-          {/* Visual representation */}
-          <div className="relative">
-            <div className="aspect-[4/3] rounded-xl overflow-hidden border border-white/5 bg-gradient-to-br from-gray-900 to-black">
-              {/* Simulated split view */}
-              <div className="absolute inset-0 flex">
-                <div className="w-1/2 bg-gradient-to-br from-green-900/30 to-green-800/10 flex items-center justify-center border-r border-white/10">
-                  <div className="text-center">
-                    <div className="w-16 h-24 bg-white/10 rounded-lg mx-auto mb-2" />
-                    <p className="text-xs text-green-400/60 uppercase tracking-wider">
-                      Green Screen
-                    </p>
-                  </div>
-                </div>
-                <div className="w-1/2 bg-gradient-to-br from-blue/10 to-purple-900/10 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-24 bg-cyan/10 rounded-lg mx-auto mb-2 border border-cyan/20" />
-                    <p className="text-xs text-cyan/60 uppercase tracking-wider">
-                      Final Output
-                    </p>
-                  </div>
-                </div>
+        {/* Steps — large numbered, horizontal on desktop */}
+        <div className="grid md:grid-cols-3 gap-px bg-border-subtle rounded-xl overflow-hidden">
+          {steps.map((step, i) => (
+            <ScrollReveal key={step.num} delay={i * 0.12}>
+              <div className="bg-bg-secondary p-8 lg:p-10 h-full group hover:bg-bg-elevated transition-colors duration-300">
+                <span className="block font-heading text-5xl lg:text-6xl font-bold text-accent/15 group-hover:text-accent/25 transition-colors duration-300 mb-6 select-none">
+                  {step.num}
+                </span>
+                <h3 className="text-xl font-heading font-semibold text-text-primary mb-3">
+                  {step.title}
+                </h3>
+                <p className="text-text-secondary leading-relaxed">
+                  {step.description}
+                </p>
               </div>
-              {/* Center divider */}
-              <div className="absolute top-0 bottom-0 left-1/2 w-px bg-cyan/30" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black border-2 border-cyan/50 flex items-center justify-center">
-                <svg
-                  className="w-4 h-4 text-cyan"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M8 9l4-4 4 4m0 6l-4 4-4-4"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
+            </ScrollReveal>
+          ))}
         </div>
       </div>
     </section>

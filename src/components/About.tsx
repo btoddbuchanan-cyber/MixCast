@@ -1,91 +1,93 @@
+"use client";
+
+import ScrollReveal from "./ScrollReveal";
+
 const team = [
-  {
-    name: "Tarrnie Williams",
-    role: "COO & Founder",
-    initials: "TW",
-  },
-  {
-    name: "Sean McGowan",
-    role: "CEO",
-    initials: "SM",
-  },
-  {
-    name: "Ben Sheftel",
-    role: "CTO & Founder",
-    initials: "BS",
-  },
+  { name: "Tarrnie Williams", role: "COO & Founder", initials: "TW" },
+  { name: "Sean McGowan", role: "CEO", initials: "SM" },
+  { name: "Ben Sheftel", role: "CTO & Founder", initials: "BS" },
 ];
 
-const logos = [
-  "VIVE",
-  "Pepsi",
-  "Unity",
-  "National Geographic",
-  "Netflix",
-  "Sony Pictures",
-  "NBC",
-  "Discovery",
-  "EA Games",
-  "Intel",
-  "Relic",
-  "Activision",
-  "Magic Leap",
-  "History",
+const clientLogos = [
+  "VIVE", "Pepsi", "Unity", "National Geographic", "Netflix",
+  "Sony Pictures", "NBC", "Discovery", "EA Games", "Intel",
+  "Relic", "Activision", "Magic Leap", "History",
 ];
 
 export default function About() {
   return (
-    <section id="about" className="py-24 px-6 relative">
+    <section
+      id="about"
+      className="relative py-32 px-6 lg:px-8 overflow-hidden"
+      aria-labelledby="about-heading"
+    >
+      <div
+        className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-accent/20 via-brand-blue/10 to-transparent"
+        aria-hidden="true"
+      />
+
       <div className="max-w-7xl mx-auto">
-        <div className="mb-4">
-          <h2 className="text-5xl md:text-6xl font-light text-white tracking-tight">
-            WHO WE ARE
-          </h2>
-          <div className="h-0.5 w-32 bg-gradient-to-r from-cyan to-transparent mt-4" />
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-16 mt-16">
-          <div>
-            <p className="text-cyan text-lg mb-4 font-medium">NERDS</p>
-            <p className="text-2xl md:text-3xl text-gray-300 font-light leading-relaxed">
-              With a combined 60+ years of TV/Film & Video Game development
-              experience
-            </p>
-          </div>
-
-          <div className="grid grid-cols-3 gap-8">
-            {team.map((member) => (
-              <div key={member.name} className="text-center">
-                <div className="w-28 h-28 mx-auto mb-4 rounded-sm border border-cyan/30 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-cyan/70">
-                    {member.initials}
-                  </span>
-                </div>
-                <h3 className="text-sm font-semibold text-white uppercase tracking-wider">
-                  {member.name}
-                </h3>
-                <p className="text-xs text-gray-400 mt-1">{member.role}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Industry logos */}
-        <div className="mt-20 pt-12 border-t border-white/5">
-          <p className="text-xs text-gray-500 text-center mb-8 uppercase tracking-widest">
-            Leadership has experience with top industry players
+        <ScrollReveal>
+          <p className="text-accent text-xs font-semibold tracking-[0.4em] uppercase mb-3">
+            Who We Are
           </p>
-          <div className="flex flex-wrap justify-center gap-x-10 gap-y-4">
-            {logos.map((logo) => (
-              <span
-                key={logo}
-                className="text-sm text-gray-500 font-medium tracking-wide"
+          <h2
+            id="about-heading"
+            className="font-heading text-4xl sm:text-5xl lg:text-7xl font-bold text-text-primary tracking-tight leading-[1.05]"
+          >
+            60+ years combined
+            <br />
+            <span className="gradient-text">Film, TV & Games</span>
+          </h2>
+        </ScrollReveal>
+
+        <div className="mt-20 grid md:grid-cols-3 gap-6 lg:gap-10">
+          {team.map((member, i) => (
+            <ScrollReveal key={member.name} delay={i * 0.12}>
+              <div
+                className={`group relative p-8 rounded-lg bg-bg-secondary border border-border-subtle hover:border-border-accent transition-all duration-300 ${
+                  i === 1 ? "md:translate-y-8" : ""
+                }`}
               >
-                {logo}
-              </span>
-            ))}
-          </div>
+                <span
+                  className="absolute top-4 right-4 text-6xl font-heading font-bold text-text-primary/[0.04] leading-none select-none"
+                  aria-hidden="true"
+                >
+                  {member.initials}
+                </span>
+                <div className="relative z-10">
+                  <div className="w-16 h-16 rounded-md bg-bg-elevated border border-border-subtle flex items-center justify-center mb-6 group-hover:border-border-accent transition-colors">
+                    <span className="text-lg font-heading font-bold text-accent">
+                      {member.initials}
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-heading font-semibold text-text-primary mb-1">
+                    {member.name}
+                  </h3>
+                  <p className="text-sm text-text-secondary">{member.role}</p>
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
         </div>
+
+        <ScrollReveal>
+          <div className="mt-24 pt-16 border-t border-border-subtle">
+            <p className="text-xs text-text-muted text-center uppercase tracking-[0.3em] mb-10">
+              Leadership experience includes
+            </p>
+            <div className="flex flex-wrap justify-center gap-x-8 gap-y-3" aria-label="Companies our leadership has worked with">
+              {clientLogos.map((logo) => (
+                <span
+                  key={logo}
+                  className="text-sm text-text-muted/80 font-medium tracking-wide hover:text-text-secondary transition-colors duration-200"
+                >
+                  {logo}
+                </span>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

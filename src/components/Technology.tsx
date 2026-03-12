@@ -1,11 +1,18 @@
-const features = [
-  "Full editorial and post viz data support",
+"use client";
+
+import ScrollReveal from "./ScrollReveal";
+
+const featuresLeft = [
+  "Full editorial & post viz data support",
   "Industry standard media handling",
-  "Body and face performance capture",
+  "Body & face performance capture",
   "Multi-cam pro-cinema capable",
   "Live Lens Data handling",
   "Layer exporting support",
-  "Unreal Engine and Unity supported",
+];
+
+const featuresRight = [
+  "Unreal Engine & Unity supported",
   "BlackMagic Design integration",
   "Optitrack Tracking integration",
   "Network functionality",
@@ -30,59 +37,102 @@ const layers = [
 
 export default function Technology() {
   return (
-    <section id="technology" className="py-24 px-6 relative overflow-hidden">
-      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-blue/5 rounded-full blur-[150px]" />
+    <section
+      id="technology"
+      className="relative py-32 px-6 lg:px-8 overflow-hidden"
+      aria-labelledby="tech-heading"
+    >
+      <div
+        className="absolute top-1/4 right-0 w-[600px] h-[600px] rounded-full blur-[200px] bg-accent/5"
+        aria-hidden="true"
+      />
 
-      <div className="max-w-7xl mx-auto relative">
-        <div className="mb-4">
-          <h2 className="text-5xl md:text-6xl font-light text-white tracking-tight">
-            TECHNICAL OVERVIEW
-          </h2>
-          <div className="h-0.5 w-32 bg-gradient-to-r from-cyan to-transparent mt-4" />
-        </div>
-
-        {/* Features grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-16">
-          {features.map((feature) => (
-            <div key={feature} className="flex items-center gap-3 py-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-cyan shrink-0" />
-              <span className="text-gray-300 text-sm">{feature}</span>
-            </div>
-          ))}
-        </div>
-
-        {/* 35+ layers section */}
-        <div className="mt-20">
-          <div className="flex items-center gap-6 mb-8">
-            <div className="text-center">
-              <p className="text-5xl font-bold gradient-text">35+</p>
-              <p className="text-sm text-gray-400 uppercase tracking-wider mt-1">
-                Layers
-              </p>
-              <p className="text-sm text-gray-400 uppercase tracking-wider">
-                Data Export
-              </p>
-            </div>
-            <div className="h-16 w-px bg-white/10" />
-            <p className="text-gray-400 text-sm max-w-md">
-              Every frame exports comprehensive data layers for maximum
-              flexibility in post-production.
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Right-aligned heading — asymmetry from previous sections */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-20">
+          <ScrollReveal>
+            <p className="text-accent text-xs font-semibold tracking-[0.4em] uppercase mb-3">
+              Under the Hood
             </p>
-          </div>
-
-          {/* Layer visualization */}
-          <div className="flex flex-wrap gap-2">
-            {layers.map((layer, i) => (
-              <span
-                key={layer}
-                className="px-4 py-2 text-xs rounded-full border border-white/10 text-gray-400 hover:border-cyan/30 hover:text-cyan transition-colors"
-                style={{ animationDelay: `${i * 0.1}s` }}
-              >
-                {layer}
+            <h2
+              id="tech-heading"
+              className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary tracking-tight"
+            >
+              Technical
+              <br />
+              <span className="gradient-text">Overview</span>
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal delay={0.1}>
+            <div className="flex items-center gap-5 lg:pb-2">
+              <span className="text-5xl lg:text-6xl font-heading font-bold gradient-text">
+                35+
               </span>
-            ))}
-          </div>
+              <div>
+                <p className="text-sm text-text-primary font-semibold uppercase tracking-wider">
+                  Data Layers
+                </p>
+                <p className="text-sm text-text-secondary">
+                  Exported every frame
+                </p>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
+
+        {/* Features in two columns with dot markers */}
+        <div className="grid md:grid-cols-2 gap-x-16 gap-y-0 mb-20">
+          <ScrollReveal>
+            <ul className="space-y-4" role="list">
+              {featuresLeft.map((f) => (
+                <li key={f} className="flex items-start gap-3">
+                  <span
+                    className="mt-2.5 w-1.5 h-1.5 rounded-full bg-accent shrink-0"
+                    aria-hidden="true"
+                  />
+                  <span className="text-text-secondary leading-relaxed">
+                    {f}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </ScrollReveal>
+          <ScrollReveal delay={0.1}>
+            <ul className="space-y-4" role="list">
+              {featuresRight.map((f) => (
+                <li key={f} className="flex items-start gap-3">
+                  <span
+                    className="mt-2.5 w-1.5 h-1.5 rounded-full bg-accent shrink-0"
+                    aria-hidden="true"
+                  />
+                  <span className="text-text-secondary leading-relaxed">
+                    {f}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </ScrollReveal>
+        </div>
+
+        {/* Layer tags — visual rhythm */}
+        <ScrollReveal>
+          <div className="pt-12 border-t border-border-subtle">
+            <p className="text-xs text-text-muted uppercase tracking-[0.3em] mb-6">
+              Export layers include
+            </p>
+            <div className="flex flex-wrap gap-2" role="list" aria-label="Data export layers">
+              {layers.map((layer) => (
+                <span
+                  key={layer}
+                  role="listitem"
+                  className="px-4 py-2 text-xs font-medium rounded-md border border-border-subtle text-text-secondary hover:border-border-accent hover:text-accent transition-colors duration-200 cursor-default"
+                >
+                  {layer}
+                </span>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

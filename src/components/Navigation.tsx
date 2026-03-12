@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -13,69 +13,71 @@ const navLinks = [
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2">
-          <span className="text-2xl font-bold">
-            <span className="text-blue">MIX</span>
+    <nav
+      role="navigation"
+      aria-label="Main navigation"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-bg-primary/90 backdrop-blur-xl border-b border-border-subtle shadow-lg shadow-black/20"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex items-center justify-between">
+        <a href="#" aria-label="MixCast Studios home" className="group">
+          <span className="text-2xl font-heading font-bold tracking-tight">
+            <span className="text-brand-blue group-hover:text-accent transition-colors duration-300">
+              MIX
+            </span>
             <span className="gradient-text">CAST</span>
           </span>
         </a>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-10" role="menubar">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-gray-400 hover:text-cyan transition-colors"
+              role="menuitem"
+              className="text-sm text-text-secondary hover:text-accent transition-colors duration-200 tracking-wide"
             >
               {link.label}
             </a>
           ))}
         </div>
 
-        {/* Mobile menu button */}
         <button
-          className="md:hidden text-white"
+          className="md:hidden w-10 h-10 flex items-center justify-center text-text-primary rounded-md hover:bg-bg-elevated transition-colors"
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isOpen}
         >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {isOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             )}
           </svg>
         </button>
       </div>
 
-      {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-black/95 border-t border-white/5 px-6 py-4">
+        <div className="md:hidden bg-bg-primary/98 backdrop-blur-xl border-t border-border-subtle px-6 pb-6" role="menu">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="block py-3 text-gray-400 hover:text-cyan transition-colors"
+              role="menuitem"
+              className="block py-3 text-text-secondary hover:text-accent transition-colors text-lg"
               onClick={() => setIsOpen(false)}
             >
               {link.label}
