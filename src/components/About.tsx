@@ -4,9 +4,9 @@ import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 
 const team = [
-  { name: "Tarrnie Williams", role: "COO & Founder", initials: "TW", photo: "/headshot-tarrnie.jpg" },
+  { name: "Tarrnie Williams", role: "COO & Founder", initials: "TW", photo: "/headshot-tarrnie.png" },
   { name: "Sean McGowan", role: "CEO", initials: "SM", photo: "/headshot-sean.png" },
-  { name: "Ben Sheftel", role: "CTO & Founder", initials: "BS", photo: "/headshot-ben.jpg" },
+  { name: "Ben Sheftel", role: "CTO & Founder", initials: "BS", photo: "/headshot-ben.png" },
 ];
 
 const clientLogos = [
