@@ -6,9 +6,6 @@ import Solution from "@/components/Solution";
 import Product from "@/components/Product";
 import Process from "@/components/Process";
 import Technology from "@/components/Technology";
-import Traction from "@/components/Traction";
-import Revenue from "@/components/Revenue";
-import Patents from "@/components/Patents";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -24,9 +21,6 @@ export default function Home() {
         <Product />
         <Process />
         <Technology />
-        <Traction />
-        <Revenue />
-        <Patents />
         <Contact />
       </main>
       <Footer />

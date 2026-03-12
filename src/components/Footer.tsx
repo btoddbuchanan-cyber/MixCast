@@ -4,10 +4,8 @@ const footerLinks = [
   { href: "#about", label: "About" },
   { href: "#problem", label: "Why MixCast" },
   { href: "#product", label: "Product" },
+  { href: "#process", label: "Process" },
   { href: "#technology", label: "Technology" },
-  { href: "#traction", label: "Market" },
-  { href: "#revenue", label: "Revenue" },
-  { href: "#patents", label: "Patents" },
   { href: "#contact", label: "Contact" },
 ];
 

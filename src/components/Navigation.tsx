@@ -7,8 +7,8 @@ const navLinks = [
   { href: "#about", label: "About" },
   { href: "#problem", label: "Why MixCast" },
   { href: "#product", label: "Product" },
+  { href: "#process", label: "Process" },
   { href: "#technology", label: "Technology" },
-  { href: "#traction", label: "Market" },
   { href: "#contact", label: "Contact" },
 ];
 
