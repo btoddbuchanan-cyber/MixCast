@@ -1,11 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 
 const team = [
-  { name: "Tarrnie Williams", role: "COO & Founder", initials: "TW" },
-  { name: "Sean McGowan", role: "CEO", initials: "SM" },
-  { name: "Ben Sheftel", role: "CTO & Founder", initials: "BS" },
+  { name: "Tarrnie Williams", role: "COO & Founder", initials: "TW", photo: "/headshot-tarrnie.jpg" },
+  { name: "Sean McGowan", role: "CEO", initials: "SM", photo: "/headshot-sean.png" },
+  { name: "Ben Sheftel", role: "CTO & Founder", initials: "BS", photo: "/headshot-ben.jpg" },
 ];
 
 const clientLogos = [
@@ -56,10 +57,20 @@ export default function About() {
                   {member.initials}
                 </span>
                 <div className="relative z-10">
-                  <div className="w-16 h-16 rounded-md bg-bg-elevated border border-border-subtle flex items-center justify-center mb-6 group-hover:border-border-accent transition-colors">
-                    <span className="text-lg font-heading font-bold text-accent">
-                      {member.initials}
-                    </span>
+                  <div className="w-20 h-20 rounded-full bg-bg-elevated border-2 border-border-subtle overflow-hidden mb-6 group-hover:border-border-accent transition-colors">
+                    {member.photo ? (
+                      <Image
+                        src={member.photo}
+                        alt={member.name}
+                        width={80}
+                        height={80}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <span className="w-full h-full flex items-center justify-center text-lg font-heading font-bold text-accent">
+                        {member.initials}
+                      </span>
+                    )}
                   </div>
                   <h3 className="text-lg font-heading font-semibold text-text-primary mb-1">
                     {member.name}

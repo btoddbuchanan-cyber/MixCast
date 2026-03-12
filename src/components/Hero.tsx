@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -90,7 +91,7 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right: Abstract logo mark */}
+          {/* Right: Logo mark */}
           <motion.div
             className="hidden lg:flex items-center justify-center"
             initial={{ opacity: 0, scale: 0.85 }}
@@ -98,32 +99,15 @@ export default function Hero() {
             transition={{ duration: 1, delay: 0.3 }}
           >
             <div className="animate-float">
-              <svg
-                viewBox="0 0 200 160"
-                className="w-56 h-44"
-                fill="none"
+              <Image
+                src="/logo.png"
+                alt=""
+                width={280}
+                height={200}
+                className="w-64 h-auto drop-shadow-[0_0_40px_rgba(59,130,246,0.3)]"
                 aria-hidden="true"
-              >
-                <circle cx="40" cy="80" r="12" fill="#3b82f6" opacity="0.3" />
-                <circle cx="65" cy="80" r="16" fill="#3b82f6" opacity="0.45" />
-                <circle cx="95" cy="80" r="20" fill="#3b82f6" opacity="0.6" />
-                <polygon
-                  points="115,45 170,80 115,115"
-                  fill="url(#heroGrad)"
-                />
-                <defs>
-                  <linearGradient
-                    id="heroGrad"
-                    x1="115"
-                    y1="45"
-                    x2="170"
-                    y2="115"
-                  >
-                    <stop offset="0%" stopColor="#3b82f6" />
-                    <stop offset="100%" stopColor="#00e5ff" />
-                  </linearGradient>
-                </defs>
-              </svg>
+                priority
+              />
             </div>
           </motion.div>
         </div>

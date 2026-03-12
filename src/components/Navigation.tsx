@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -33,12 +34,14 @@ export default function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex items-center justify-between">
         <a href="#" aria-label="MixCast Studios home" className="group">
-          <span className="text-2xl font-heading font-bold tracking-tight">
-            <span className="text-brand-blue group-hover:text-accent transition-colors duration-300">
-              MIX
-            </span>
-            <span className="gradient-text">CAST</span>
-          </span>
+          <Image
+            src="/logo.png"
+            alt="MixCast Studios"
+            width={140}
+            height={48}
+            className="h-8 w-auto"
+            priority
+          />
         </a>
 
         <ul className="hidden md:flex items-center gap-10 list-none" role="list">

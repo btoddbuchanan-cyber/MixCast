@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const footerLinks = [
   { href: "#about", label: "About" },
   { href: "#product", label: "Product" },
@@ -17,10 +19,13 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <a href="#" aria-label="MixCast Studios home">
-              <span className="text-xl font-heading font-bold tracking-tight">
-                <span className="text-brand-blue">MIX</span>
-                <span className="gradient-text">CAST</span>
-              </span>
+              <Image
+                src="/logo.png"
+                alt="MixCast Studios"
+                width={120}
+                height={40}
+                className="h-7 w-auto"
+              />
             </a>
             <p className="text-sm text-text-muted mt-3 max-w-xs leading-relaxed">
               Next generation virtual production. Enabling filmmakers to
