@@ -84,16 +84,37 @@ export default function Product() {
           </ScrollReveal>
         </div>
 
-        {/* Hero image for product section */}
+        {/* Side-by-side: Green Screen Reality → Composited Output */}
         <ScrollReveal>
-          <div className="mb-16 relative rounded-lg overflow-hidden aspect-[16/10] lg:aspect-[21/9]">
-            <Image
-              src="/hero-lightsaber-r2d2.png"
-              alt="Actor wielding a lightsaber alongside R2-D2 — composited in real-time inside a virtual warehouse using MixCast"
-              fill
-              className="object-cover object-top"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-bg-primary/40 to-transparent" />
+          <div className="mb-16 grid md:grid-cols-2 gap-3">
+            {/* Left: What the camera sees */}
+            <div className="relative rounded-lg overflow-hidden">
+              <div className="aspect-[4/3] relative">
+                <Image
+                  src="/product-greenscreen.png"
+                  alt="Actor on green screen stage — the raw camera view before MixCast processing"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                <p className="text-xs font-semibold tracking-[0.3em] uppercase text-text-muted">What the camera sees</p>
+              </div>
+            </div>
+            {/* Right: What MixCast outputs */}
+            <div className="relative rounded-lg overflow-hidden">
+              <div className="aspect-[4/3] relative">
+                <Image
+                  src="/product-composited.png"
+                  alt="Actor composited in real-time with R2-D2 and lightsaber inside a virtual warehouse using MixCast"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                <p className="text-xs font-semibold tracking-[0.3em] uppercase text-accent">What MixCast outputs — live</p>
+              </div>
+            </div>
           </div>
         </ScrollReveal>
 
