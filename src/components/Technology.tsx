@@ -21,20 +21,6 @@ const featuresRight = [
   "VR & AR supported",
 ];
 
-const layers = [
-  "Base Color",
-  "Lens Data",
-  "Velocity",
-  "Face Tracking",
-  "Material Properties",
-  "Body Tracking",
-  "Depth",
-  "Prop Tracking",
-  "Normals",
-  "Camera Tracking",
-  "Physical Layer",
-  "Composite",
-];
 
 export default function Technology() {
   return (
@@ -82,7 +68,7 @@ export default function Technology() {
         </div>
 
         {/* Features in two columns with dot markers */}
-        <div className="grid md:grid-cols-2 gap-x-16 gap-y-0 mb-20">
+        <div className="grid md:grid-cols-2 gap-x-16 gap-y-0">
           <ScrollReveal>
             <ul className="space-y-4" role="list">
               {featuresLeft.map((f) => (
@@ -115,36 +101,16 @@ export default function Technology() {
           </ScrollReveal>
         </div>
 
-        {/* Export layers with volumetric diagram */}
+        {/* Data export layers visualization */}
         <ScrollReveal>
-          <div className="pt-12 border-t border-border-subtle">
-            <div className="grid md:grid-cols-[1fr_auto] gap-12 items-start">
-              <div>
-                <p className="text-xs text-text-muted uppercase tracking-[0.4em] mb-6">
-                  Export layers include
-                </p>
-                <div className="flex flex-wrap gap-2" role="list" aria-label="Data export layers">
-                  {layers.map((layer) => (
-                    <span
-                      key={layer}
-                      role="listitem"
-                      className="px-4 py-2 text-xs font-medium rounded-md border border-border-subtle text-text-secondary hover:border-border-accent hover:text-accent transition-colors duration-200 cursor-default"
-                    >
-                      {layer}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className="relative w-full md:w-80 lg:w-96 rounded-lg overflow-hidden">
-                <Image
-                  src="/deck-volumetric-diagram.png"
-                  alt="Volumetric capture space — green screen volume with tracked actor and camera"
-                  width={700}
-                  height={525}
-                  className="w-full h-auto rounded-lg"
-                />
-              </div>
-            </div>
+          <div className="mt-20 relative rounded-xl overflow-hidden">
+            <Image
+              src="/deck-data-layers.png"
+              alt="MixCast 24+ data export layers — base color, velocity, face tracking, depth, normals, camera tracking, and composite"
+              width={1920}
+              height={1080}
+              className="w-full h-auto rounded-xl"
+            />
           </div>
         </ScrollReveal>
       </div>
