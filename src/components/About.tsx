@@ -3,10 +3,15 @@
 import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 
-const team = [
+const leadership = [
   { name: "Tarrnie Williams", role: "COO & Founder", initials: "TW", photo: "/headshot-tarrnie.png" },
   { name: "Sean McGowan", role: "CEO", initials: "SM", photo: "/headshot-sean.png" },
   { name: "Ben Sheftel", role: "CTO & Founder", initials: "BS", photo: "/headshot-ben.png" },
+];
+
+const officers = [
+  { name: "Todd Buchanan", role: "Executive Advisor, Officer", initials: "TB", photo: "/headshot-todd.png" },
+  { name: "Justin Maxwell", role: "VP Corporate Development", initials: "JM", photo: "/headshot-justin.png" },
 ];
 
 const clientLogos = [
@@ -43,13 +48,49 @@ export default function About() {
         </ScrollReveal>
 
         <div className="mt-20 grid md:grid-cols-3 gap-6 lg:gap-10">
-          {team.map((member, i) => (
+          {leadership.map((member, i) => (
             <ScrollReveal key={member.name} delay={i * 0.12}>
               <div
                 className={`group relative p-8 rounded-lg bg-bg-secondary border border-border-subtle hover:border-border-accent transition-all duration-300 ${
                   i === 1 ? "md:translate-y-8" : ""
                 }`}
               >
+                <span
+                  className="absolute top-4 right-4 text-6xl font-heading font-bold text-text-primary/[0.04] leading-none select-none"
+                  aria-hidden="true"
+                >
+                  {member.initials}
+                </span>
+                <div className="relative z-10">
+                  <div className="w-20 h-20 rounded-full bg-bg-elevated border-2 border-border-subtle overflow-hidden mb-6 group-hover:border-border-accent transition-colors">
+                    {member.photo ? (
+                      <Image
+                        src={member.photo}
+                        alt={member.name}
+                        width={80}
+                        height={80}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <span className="w-full h-full flex items-center justify-center text-lg font-heading font-bold text-accent">
+                        {member.initials}
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="text-lg font-heading font-semibold text-text-primary mb-1">
+                    {member.name}
+                  </h3>
+                  <p className="text-sm text-text-secondary">{member.role}</p>
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+
+        <div className="mt-10 grid md:grid-cols-2 gap-6 lg:gap-10 max-w-2xl mx-auto">
+          {officers.map((member, i) => (
+            <ScrollReveal key={member.name} delay={0.36 + i * 0.12}>
+              <div className="group relative p-8 rounded-lg bg-bg-secondary border border-border-subtle hover:border-border-accent transition-all duration-300">
                 <span
                   className="absolute top-4 right-4 text-6xl font-heading font-bold text-text-primary/[0.04] leading-none select-none"
                   aria-hidden="true"

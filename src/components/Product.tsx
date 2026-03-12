@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 
 const capabilities = [
@@ -82,6 +83,19 @@ export default function Product() {
             </p>
           </ScrollReveal>
         </div>
+
+        {/* Hero image for product section */}
+        <ScrollReveal>
+          <div className="mb-16 relative rounded-lg overflow-hidden aspect-[16/10] lg:aspect-[21/9]">
+            <Image
+              src="/deck-moon-scene.png"
+              alt="Actor composited into a lunar landscape scene using MixCast"
+              fill
+              className="object-cover object-top"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-bg-primary/40 to-transparent" />
+          </div>
+        </ScrollReveal>
 
         {/* Feature cards — horizontal with left accent bar */}
         <div className="space-y-6">

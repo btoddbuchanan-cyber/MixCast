@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 
 const steps = [
@@ -79,6 +80,26 @@ export default function Process() {
             </ScrollReveal>
           ))}
         </div>
+
+        <ScrollReveal delay={0.4}>
+          <div className="mt-16 relative rounded-lg overflow-hidden">
+            <Image
+              src="/deck-castle-wireframe.png"
+              alt="MixCast volumetric 3D scene with multi-camera setup"
+              width={1400}
+              height={683}
+              className="w-full h-auto rounded-lg"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-bg-primary/60 via-transparent to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6">
+              <p className="text-sm text-text-secondary">
+                MixCast accurately navigates the volumetric depths of both
+                physical and digital worlds, positioning digital objects anywhere
+                — even between the camera and the talent.
+              </p>
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
