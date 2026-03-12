@@ -27,8 +27,7 @@ export default function Hero() {
       />
 
       <div className="relative z-10 px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-[1fr_auto] gap-16 items-center">
-          {/* Left: Copy */}
+        <div>
           <div>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -96,25 +95,7 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right: Logo mark */}
-          <motion.div
-            className="hidden lg:flex items-center justify-center"
-            initial={{ opacity: 0, scale: 0.85 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.3 }}
-          >
-            <div className="animate-float">
-              <Image
-                src="/logo.png"
-                alt=""
-                width={280}
-                height={200}
-                className="w-64 h-auto drop-shadow-[0_0_40px_rgba(59,130,246,0.3)]"
-                aria-hidden="true"
-                priority
-              />
-            </div>
-          </motion.div>
+
         </div>
       </div>
 
