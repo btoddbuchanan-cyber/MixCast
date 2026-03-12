@@ -88,8 +88,8 @@ export default function Product() {
         <ScrollReveal>
           <div className="mb-16 relative rounded-lg overflow-hidden aspect-[16/10] lg:aspect-[21/9]">
             <Image
-              src="/deck-moon-scene.png"
-              alt="Actor composited into a lunar landscape scene using MixCast"
+              src="/deck-lightsaber-r2d2.png"
+              alt="MixCast digital prop control — actor with lightsaber and R2D2 composited in real-time on a green screen stage"
               fill
               className="object-cover object-top"
             />
