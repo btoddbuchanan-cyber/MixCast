@@ -40,8 +40,8 @@ export default function Hero() {
               </p>
             </motion.div>
 
-            <motion.h1
-              className="text-5xl sm:text-6xl lg:text-8xl font-heading font-bold tracking-tight leading-[0.95] mb-8"
+            <motion.div
+              className="mb-8"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -50,15 +50,20 @@ export default function Hero() {
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
             >
-              <span className="text-brand-blue">MIX</span>
-              <span className="gradient-text">CAST</span>
-              <br />
-              <span className="text-text-primary text-3xl sm:text-4xl lg:text-5xl font-light block mt-4">
+              <Image
+                src="/logo.png"
+                alt="MixCast"
+                width={400}
+                height={263}
+                className="h-28 sm:h-36 lg:h-44 w-auto mb-4 drop-shadow-[0_0_30px_rgba(59,130,246,0.2)]"
+                priority
+              />
+              <h1 className="text-text-primary text-3xl sm:text-4xl lg:text-5xl font-heading font-light leading-[1.1]">
                 Film the impossible.
                 <br />
                 In real time.
-              </span>
-            </motion.h1>
+              </h1>
+            </motion.div>
 
             <motion.p
               className="text-lg text-text-secondary max-w-xl mb-10 leading-relaxed"

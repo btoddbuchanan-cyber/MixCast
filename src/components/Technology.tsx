@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 
 const featuresLeft = [
@@ -114,22 +115,35 @@ export default function Technology() {
           </ScrollReveal>
         </div>
 
-        {/* Layer tags — visual rhythm */}
+        {/* Export layers with volumetric diagram */}
         <ScrollReveal>
           <div className="pt-12 border-t border-border-subtle">
-            <p className="text-xs text-text-muted uppercase tracking-[0.4em] mb-6">
-              Export layers include
-            </p>
-            <div className="flex flex-wrap gap-2" role="list" aria-label="Data export layers">
-              {layers.map((layer) => (
-                <span
-                  key={layer}
-                  role="listitem"
-                  className="px-4 py-2 text-xs font-medium rounded-md border border-border-subtle text-text-secondary hover:border-border-accent hover:text-accent transition-colors duration-200 cursor-default"
-                >
-                  {layer}
-                </span>
-              ))}
+            <div className="grid md:grid-cols-[1fr_auto] gap-12 items-start">
+              <div>
+                <p className="text-xs text-text-muted uppercase tracking-[0.4em] mb-6">
+                  Export layers include
+                </p>
+                <div className="flex flex-wrap gap-2" role="list" aria-label="Data export layers">
+                  {layers.map((layer) => (
+                    <span
+                      key={layer}
+                      role="listitem"
+                      className="px-4 py-2 text-xs font-medium rounded-md border border-border-subtle text-text-secondary hover:border-border-accent hover:text-accent transition-colors duration-200 cursor-default"
+                    >
+                      {layer}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div className="relative w-full md:w-80 lg:w-96 rounded-lg overflow-hidden">
+                <Image
+                  src="/deck-volumetric-diagram.png"
+                  alt="Volumetric capture space — green screen volume with tracked actor and camera"
+                  width={700}
+                  height={525}
+                  className="w-full h-auto rounded-lg"
+                />
+              </div>
             </div>
           </div>
         </ScrollReveal>
