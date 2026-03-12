@@ -28,6 +28,7 @@ export const metadata: Metadata = {
     "volumetric capture",
     "MixCast",
   ],
+  metadataBase: new URL("https://website-cyan-three-79.vercel.app"),
   openGraph: {
     title: "MixCast Studios | Next Generation Virtual Production",
     description:
@@ -35,6 +36,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "MixCast Studios",
+  },
+  other: {
+    "theme-color": "#050508",
   },
   twitter: {
     card: "summary_large_image",

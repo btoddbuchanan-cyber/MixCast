@@ -29,9 +29,16 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "Organization",
             name: "MixCast Studios",
+            url: "https://website-cyan-three-79.vercel.app",
             description:
               "Next generation virtual production platform enabling filmmakers to capture real actors inside 3D digital environments in real-time.",
             foundingDate: "2019",
+            numberOfEmployees: { "@type": "QuantitativeValue", value: 3 },
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Vancouver",
+              addressCountry: "CA",
+            },
             knowsAbout: [
               "Virtual Production",
               "Real-Time Compositing",

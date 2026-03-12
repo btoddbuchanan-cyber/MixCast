@@ -41,18 +41,18 @@ export default function Navigation() {
           </span>
         </a>
 
-        <div className="hidden md:flex items-center gap-10" role="menubar">
+        <ul className="hidden md:flex items-center gap-10 list-none" role="list">
           {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              role="menuitem"
-              className="text-sm text-text-secondary hover:text-accent transition-colors duration-200 tracking-wide"
-            >
-              {link.label}
-            </a>
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className="text-sm text-text-secondary hover:text-accent transition-colors duration-200 tracking-wide"
+              >
+                {link.label}
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
 
         <button
           className="md:hidden w-10 h-10 flex items-center justify-center text-text-primary rounded-md hover:bg-bg-elevated transition-colors"
@@ -70,21 +70,25 @@ export default function Navigation() {
         </button>
       </div>
 
-      {isOpen && (
-        <div className="md:hidden bg-bg-primary/98 backdrop-blur-xl border-t border-border-subtle px-6 pb-6" role="menu">
+      <div
+        className={`md:hidden bg-bg-primary/98 backdrop-blur-xl border-t border-border-subtle px-6 overflow-hidden transition-all duration-300 ease-in-out ${
+          isOpen ? "max-h-96 pb-6 opacity-100" : "max-h-0 pb-0 opacity-0"
+        }`}
+      >
+        <ul className="list-none" role="list">
           {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              role="menuitem"
-              className="block py-3 text-text-secondary hover:text-accent transition-colors text-lg"
-              onClick={() => setIsOpen(false)}
-            >
-              {link.label}
-            </a>
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className="block py-3 text-text-secondary hover:text-accent transition-colors text-lg"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.label}
+              </a>
+            </li>
           ))}
-        </div>
-      )}
+        </ul>
+      </div>
     </nav>
   );
 }

@@ -12,7 +12,7 @@ export default function Hero() {
       <div className="absolute inset-0 grid-mesh" />
       <div className="absolute inset-0 noise-overlay" />
       <div
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-[180px] animate-pulse-glow"
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[120px] animate-pulse-glow"
         style={{
           background:
             "radial-gradient(circle, rgba(59,130,246,0.12) 0%, rgba(0,229,255,0.06) 50%, transparent 70%)",
@@ -25,7 +25,7 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 px-6 lg:px-8 max-w-6xl mx-auto">
+      <div className="relative z-10 px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-[1fr_auto] gap-16 items-center">
           {/* Left: Copy */}
           <div>

@@ -73,7 +73,7 @@ export default function About() {
 
         <ScrollReveal>
           <div className="mt-24 pt-16 border-t border-border-subtle">
-            <p className="text-xs text-text-muted text-center uppercase tracking-[0.3em] mb-10">
+            <p className="text-xs text-text-muted text-center uppercase tracking-[0.4em] mb-10">
               Leadership experience includes
             </p>
             <div className="flex flex-wrap justify-center gap-x-8 gap-y-3" aria-label="Companies our leadership has worked with">

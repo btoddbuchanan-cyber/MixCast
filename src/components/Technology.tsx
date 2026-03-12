@@ -117,7 +117,7 @@ export default function Technology() {
         {/* Layer tags — visual rhythm */}
         <ScrollReveal>
           <div className="pt-12 border-t border-border-subtle">
-            <p className="text-xs text-text-muted uppercase tracking-[0.3em] mb-6">
+            <p className="text-xs text-text-muted uppercase tracking-[0.4em] mb-6">
               Export layers include
             </p>
             <div className="flex flex-wrap gap-2" role="list" aria-label="Data export layers">

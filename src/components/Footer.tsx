@@ -30,7 +30,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <nav aria-label="Footer navigation">
-            <p className="text-xs text-text-muted uppercase tracking-[0.3em] mb-4 font-semibold">
+            <p className="text-xs text-text-muted uppercase tracking-[0.4em] mb-4 font-semibold">
               Navigation
             </p>
             <ul className="space-y-2" role="list">
@@ -49,7 +49,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <p className="text-xs text-text-muted uppercase tracking-[0.3em] mb-4 font-semibold">
+            <p className="text-xs text-text-muted uppercase tracking-[0.4em] mb-4 font-semibold">
               Contact
             </p>
             <a

@@ -9,7 +9,7 @@
 /* --- Color Tokens (WCAG AA verified) --- */
 /* --text-primary: #F0F2F5 on --bg-primary: #050508 → 17.4:1 PASS */
 /* --text-secondary: #94A3B8 on --bg-primary: #050508 → 7.1:1 PASS */
-/* --text-muted: #64748B on --bg-primary: #050508 → 4.6:1 PASS large */
+/* --text-muted: #6B7A8D on --bg-primary: #050508 → 5.0:1 PASS AA */
 /* --accent: #00E5FF on --bg-primary: #050508 → 12.8:1 PASS */
 /* --brand-blue: #3B82F6 on --bg-primary: #050508 → 6.3:1 PASS */
 
@@ -20,7 +20,7 @@
   --bg-surface: #111827;
   --text-primary: #f0f2f5;
   --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  --text-muted: #6b7a8d;
   --accent: #00e5ff;
   --accent-dim: #0ea5e9;
   --brand-blue: #3b82f6;
