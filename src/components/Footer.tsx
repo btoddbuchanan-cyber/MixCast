@@ -72,9 +72,13 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} MixCast Studios Inc. All rights
             reserved.
           </p>
-          <p className="text-xs text-text-muted">
-            4 Patents Awarded &middot; Vancouver, Canada
-          </p>
+          <div className="flex items-center gap-4 text-xs text-text-muted">
+            <a href="/privacy" className="hover:text-text-secondary transition-colors">Privacy Policy</a>
+            <span aria-hidden="true">&middot;</span>
+            <a href="/terms" className="hover:text-text-secondary transition-colors">Terms of Use</a>
+            <span aria-hidden="true">&middot;</span>
+            <span>4 Patents Awarded &middot; Vancouver, Canada</span>
+          </div>
         </div>
       </div>
     </footer>
