@@ -25,18 +25,29 @@ export default function About() {
       aria-labelledby="about-heading"
     >
       <div className="max-w-7xl mx-auto">
+        {/* Hero image */}
         <ScrollReveal>
-          <div className="text-center mb-16">
-            <p className="text-accent text-xs font-semibold tracking-[0.4em] uppercase mb-3">
-              Who We Are
-            </p>
-            <h2
-              id="about-heading"
-              className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary tracking-tight leading-[1.1]"
-            >
-              60+ years combined{" "}
-              <span className="gradient-text">Film, TV & Games</span>
-            </h2>
+          <div className="relative rounded-xl overflow-hidden mb-16 aspect-[16/7]">
+            <Image
+              src="/hero-about.png"
+              alt="Real-time virtual production — actor composited into a 3D basketball arena with real-time reflections"
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/40 to-transparent" />
+            <div className="absolute bottom-8 left-8 right-8">
+              <p className="text-accent text-xs font-semibold tracking-[0.4em] uppercase mb-3">
+                Who We Are
+              </p>
+              <h2
+                id="about-heading"
+                className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary tracking-tight leading-[1.1]"
+              >
+                60+ years combined{" "}
+                <span className="gradient-text">Film, TV & Games</span>
+              </h2>
+            </div>
           </div>
         </ScrollReveal>
 

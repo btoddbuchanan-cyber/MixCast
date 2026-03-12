@@ -24,8 +24,8 @@ export default function Footer() {
                 src="/logo.png"
                 alt="MixCast Studios"
                 width={120}
-                height={40}
-                className="h-7 w-auto"
+                height={80}
+                className="h-9 w-auto"
               />
             </a>
             <p className="text-sm text-text-muted mt-3 max-w-xs leading-relaxed">

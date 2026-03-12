@@ -38,8 +38,8 @@ export default function Navigation() {
             src="/logo.png"
             alt="MixCast Studios"
             width={140}
-            height={48}
-            className="h-8 w-auto"
+            height={92}
+            className="h-10 w-auto"
             priority
           />
         </a>
