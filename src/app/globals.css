@@ -90,6 +90,11 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1;
 }
 
+.mask-fade {
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
 .grid-mesh {
   background-image:
     linear-gradient(rgba(148, 163, 184, 0.03) 1px, transparent 1px),

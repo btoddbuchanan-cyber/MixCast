@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 
@@ -16,6 +17,60 @@ const clientLogos = [
   "Sony Pictures", "NBC", "Discovery", "EA Games", "Intel",
   "Relic", "Activision", "Magic Leap", "History",
 ];
+
+function LogoCarousel({ logos }: { logos: string[] }) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    let animationId: number;
+    let pos = 0;
+    const speed = 0.5; // px per frame
+
+    const animate = () => {
+      pos += speed;
+      // When we've scrolled past the first set, reset seamlessly
+      const halfWidth = el.scrollWidth / 2;
+      if (pos >= halfWidth) pos = 0;
+      el.style.transform = `translateX(-${pos}px)`;
+      animationId = requestAnimationFrame(animate);
+    };
+
+    animationId = requestAnimationFrame(animate);
+
+    const pause = () => cancelAnimationFrame(animationId);
+    const resume = () => { animationId = requestAnimationFrame(animate); };
+
+    el.addEventListener("mouseenter", pause);
+    el.addEventListener("mouseleave", resume);
+
+    return () => {
+      cancelAnimationFrame(animationId);
+      el.removeEventListener("mouseenter", pause);
+      el.removeEventListener("mouseleave", resume);
+    };
+  }, []);
+
+  // Double the logos for seamless infinite scroll
+  const doubled = [...logos, ...logos];
+
+  return (
+    <div className="overflow-hidden mask-fade">
+      <div ref={scrollRef} className="flex items-center gap-12 whitespace-nowrap will-change-transform">
+        {doubled.map((logo, i) => (
+          <span
+            key={`${logo}-${i}`}
+            className="text-lg sm:text-xl font-heading font-semibold text-text-muted/60 tracking-wide hover:text-text-secondary transition-colors duration-200 shrink-0 select-none"
+          >
+            {logo}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function About() {
   return (
@@ -81,19 +136,10 @@ export default function About() {
 
         <ScrollReveal>
           <div className="mt-16 pt-10 border-t border-border-subtle">
-            <p className="text-xs text-text-muted text-center uppercase tracking-[0.4em] mb-6">
+            <p className="text-xs text-text-muted text-center uppercase tracking-[0.4em] mb-8">
               Leadership experience includes
             </p>
-            <div className="flex flex-wrap justify-center gap-x-8 gap-y-3" aria-label="Companies our leadership has worked with">
-              {clientLogos.map((logo) => (
-                <span
-                  key={logo}
-                  className="text-sm text-text-muted/80 font-medium tracking-wide hover:text-text-secondary transition-colors duration-200"
-                >
-                  {logo}
-                </span>
-              ))}
-            </div>
+            <LogoCarousel logos={clientLogos} />
           </div>
         </ScrollReveal>
       </div>
